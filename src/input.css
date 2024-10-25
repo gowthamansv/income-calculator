@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+.custom-bg {
+  background-color: #C9E9D2;
+}
+.btn {
+  display: flex;
+  flex-direction: column;
+}
+
+button[onclick*='deleteEntry'] {
+  background-color: #dc3545;
+}
+
+button[onclick*='deleteEntry']:hover {
+  background-color: #c82333;
+}
+  button {
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }

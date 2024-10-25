@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income Expense Calculator</title>
+  <link href="./output.css" rel="stylesheet">
+  <!-- Include TailwindCSS (via CDN for simplicity) -->
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+</head>
+<body class="bg-gray-100">
+  <div class="container mx-auto p-6 custom-bg shadow-lg rounded-lg max-w-full">
+    <h1 class="text-3xl font-bold mb-6 text-center">Income Expense Calculator</h1>
+    
+    <!-- Totals Section -->
+    <div class="totals flex justify-between bg-blue-50 p-4 rounded-lg mb-6">
+      <p>Total Income: <span id="totalIncome" class="text-green-500 font-bold">0</span></p>
+      <p>Total Expenses: <span id="totalExpenses" class="text-red-500 font-bold">0</span></p>
+      <p>Net Balance: <span id="netBalance" class="font-bold">0</span></p>
+    </div>
+
+    <!-- Input Fields Section -->
+    <div class="input-fields space-y-4">
+      <div>
+        <label for="description" class="block text-gray-700 font-semibold mb-1">Description</label>
+        <input type="text" id="description" class="border p-2 w-full rounded" placeholder="Enter description">
+      </div>
+      <div>
+        <label for="amount" class="block text-gray-700 font-semibold mb-1">Amount</label>
+        <input type="number" id="amount" class="border p-2 w-full rounded" placeholder="Enter amount">
+      </div>
+      <div>
+        <label for="date" class="block text-gray-700 font-semibold mb-1">Date</label>
+        <input type="date" id="date" class="border p-2 w-full rounded">
+      </div>
+
+      <!-- Radio buttons for selecting income or expense -->
+      <div>
+        <label class="block text-gray-700 font-semibold mb-1">Entry Type</label>
+        <div class="flex justify-start space-x-4">
+          <label class="flex items-center space-x-1">
+            <input type="radio" name="entryType" value="income" checked class="h-4 w-4 text-green-500">
+            <span>Income</span>
+          </label>
+          <label class="flex items-center space-x-1">
+            <input type="radio" name="entryType" value="expense" class="h-4 w-4 text-red-500">
+            <span>Expense</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Buttons for Add and Reset -->
+      <div class="flex space-x-2">
+        <button id="addEntry" class="bg-blue-500 text-white p-2 rounded w-full hover:bg-blue-700">Add Entry</button>
+        <button id="reset" class="bg-red-500 text-white p-2 rounded w-full hover:bg-red-700">Reset</button>
+      </div>
+    </div>
+
+    <!-- Filters Section -->
+    <div class="filters mt-8">
+      <label class="block text-gray-700 font-semibold mb-2">Filter by Type</label>
+      <div class="flex justify-center space-x-4 mb-4">
+        <label><input type="radio" name="filter" value="all" checked class="h-4 w-4 text-gray-700"> All</label>
+        <label><input type="radio" name="filter" value="income" class="h-4 w-4 text-green-500"> Income</label>
+        <label><input type="radio" name="filter" value="expense" class="h-4 w-4 text-red-500"> Expense</label>
+      </div>
+    </div>
+
+    <!-- Table to display entries -->
+    <table class="min-w-full bg-white rounded-lg shadow">
+      <thead class="bg-blue-100">
+        <tr>
+          <th class="px-4 py-2 text-left text-gray-600">Description</th>
+          <th class="px-4 py-2 text-left text-gray-600">Amount</th>
+          <th class="px-4 py-2 text-left text-gray-600">Type</th>
+          <th class="px-4 py-2 text-left text-gray-600">Date</th>
+          <th class="px-4 py-2 text-left text-gray-600">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="entryList" class="text-gray-700">
+        <!-- Entries will be dynamically added here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
